@@ -11,9 +11,9 @@ const path = require('path');
     const relativeFileName = path.relative(process.cwd(), callee.getFileName());
     const prefix = `${relativeFileName}:${callee.getLineNumber()}:`;
     if (typeof firstArgument === 'string') {
-      originalLoggingMethod(prefix + ' ' + firstArgument, ...otherArguments);
+      originalLoggingMethod(prefix + '👉 ' + firstArgument, ...otherArguments);
     } else {
-      originalLoggingMethod(prefix, firstArgument, ...otherArguments);
+      originalLoggingMethod(prefix + '👉 ' + firstArgument, ...otherArguments);
     }
   };
 });
