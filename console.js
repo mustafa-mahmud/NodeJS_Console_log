@@ -9,11 +9,11 @@ const path = require('path');
     const callee = new Error().stack[1];
     Error.prepareStackTrace = originalPrepareStackTrace;
     const relativeFileName = path.relative(process.cwd(), callee.getFileName());
-    const prefix = `${relativeFileName}:${callee.getLineNumber()}:`;
+    const prefix = `${relativeFileName}:${callee.getLineNumber()}:👉`;
     if (typeof firstArgument === 'string') {
-      originalLoggingMethod(prefix + '👉 ' + firstArgument, ...otherArguments);
+      originalLoggingMethod(prefix, firstArgument, ...otherArguments);
     } else {
-      originalLoggingMethod(prefix + '👉 ' + firstArgument, ...otherArguments);
+      originalLoggingMethod(prefix, firstArgument, ...otherArguments);
     }
   };
 });
